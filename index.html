@@ -11,7 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato" rel="stylesheet" />
     <title>Restaurantes</title>
-    <script type="module" crossorigin src="/restaurantes/assets/index-2352533e.js"></script>
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="module" crossorigin src="/restaurantes/assets/index-1cebd9e9.js"></script>
     <link rel="stylesheet" href="/restaurantes/assets/index-92b650c2.css">
   </head>
   <body>
