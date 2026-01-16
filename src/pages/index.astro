@@ -1,15 +1,14 @@
 ---
 
+import BaseHead from "@components/base/BaseHead.astro";
+const siteTitle = 'Restaurantes | Proyectos | Alex Estudio 86';
+const siteDescription = 'Descubre nuestros proyectos de diseño para restaurantes, parte de nuestra cartera en [Nombre de tu Sitio].';
+
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
+
+<html lang="es">
+	<BaseHead title={siteTitle} description={siteDescription} />
 	<body>
 		<h1>Astro</h1>
 	</body>
