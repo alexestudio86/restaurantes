@@ -1,10 +1,9 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://alexestudio86.github.io',
-    base: '/restaurantes',
+    base: '/proyectos/restaurantes/',
     vite: {
         resolve: {
             alias: {
@@ -12,8 +11,9 @@ export default defineConfig({
                 "@components": "/src/components",
                 "@layouts": "/src/layouts",
                 "@assets": "/src/assets",
-                "@styles": "/src/styles",
-            },
-        },
-    },
+                "@styles": "/src/styles", 
+            }
+        }
+    }
+
 });

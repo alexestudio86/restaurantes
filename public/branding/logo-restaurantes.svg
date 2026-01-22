@@ -1,0 +1,28 @@
+<svg
+  width="200"
+  height="200"
+  viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Restaurant order app logo"
+>
+  <!-- Plato -->
+  <circle
+    cx="100"
+    cy="100"
+    r="70"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="8"
+  />
+
+  <!-- Check de pedido -->
+  <path
+    d="M75 105 L95 125 L130 85"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

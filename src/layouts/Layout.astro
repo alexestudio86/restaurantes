@@ -1,0 +1,29 @@
+---
+
+import BaseHead from "@components/base/baseHead/BaseHead.astro";
+import BaseNavbar from "@components/base/baseNavbar/BaseNavbar.astro";
+import BaseFooter from "@components/base/baseFooter/BaseFooter.astro";
+
+---
+
+<html lang="es">
+  <head>
+    <BaseHead title='Restaurantes' description='El mejor sitio de Restaurantes' />
+  </head>
+  <body>
+    <BaseNavbar />
+    <slot />
+    <BaseFooter />
+  </body>
+</html>
+
+
+<style>
+
+  body {
+    display:                grid;
+    min-height:             100dvh;
+    grid-template-rows:     auto 1fr auto;
+  }
+
+</style>

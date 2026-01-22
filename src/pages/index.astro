@@ -1,15 +1,38 @@
 ---
 
-import BaseHead from "@components/base/BaseHead.astro";
-const siteTitle = 'Restaurantes | Proyectos | Alex Estudio 86';
-const siteDescription = 'Descubre nuestros proyectos de diseño para restaurantes, parte de nuestra cartera en [Nombre de tu Sitio].';
+import Layout from "@layouts/Layout.astro";
+import HomepagePlans from "@components/homepage/homepagePlans/HomepagePlans.astro";
 
 ---
 
 
-<html lang="es">
-	<BaseHead title={siteTitle} description={siteDescription} />
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+	<main>
+		<div class='w3-content'>
+			<div class="py-5 w3-container">
+				<h1 class="w3-xxlarge">Soluciones para Restaurantes</h1>
+				<HomepagePlans />
+			</div>
+		</div>
+	</main>
+</Layout>
+
+
+<style>
+
+	main {
+		display:			flex;
+		flex-direction:		column;
+		justify-content:	center;
+	}
+
+	main > div {
+		width:				100%;
+	}
+
+	main > div > div > h1 {
+		text-transform:		uppercase;
+		padding:			0 0 3rem 0;
+	}
+
+</style>

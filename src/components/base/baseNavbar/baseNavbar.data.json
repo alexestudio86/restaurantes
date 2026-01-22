@@ -1,0 +1,23 @@
+ [
+    {
+        "name":   "Home",
+        "icon":   "fa-solid fa-house",
+        "url":    "/"
+    },{
+        "name":   "Servicios",
+        "icon":   "fa-solid fa-bell-concierge",
+        "url":    "/servicios"
+    },{
+        "name":   "Planes",
+        "icon":   "fa-solid fa-list-check",
+        "url":    "/planes"
+    },{
+        "name":   "Paquetes",
+        "icon":   "fa-solid fa-cube",
+        "url":    "/paquetes"
+    },{
+        "name":   "Contacto",
+        "icon":   "fa-solid fa-headset",  
+        "url":    "/contact"
+    }
+]
