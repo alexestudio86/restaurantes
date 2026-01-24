@@ -1,0 +1,33 @@
+[
+    {
+        "category":     "basic",
+        "options":      [
+            {
+                "name":     "Diseño 01",
+                "slug":     "modelo-01"
+            },{
+                "name":     "Diseño 02",
+                "slug":     "modelo-02"
+            },{
+                "name":     "Diseño 03",
+                "slug":     "modelo-03"
+            }
+        ]
+    },{
+        "category":     "premium",
+        "options":      [
+            {
+                "name":     "Diseño 01",
+                "slug":     "modelo-01"
+            }
+        ]
+    },{
+        "category":     "platinum",
+        "options":      [
+            {
+                "name":     "Diseño 01",
+                "slug":     "modelo-01"
+            }
+        ]
+    }
+]

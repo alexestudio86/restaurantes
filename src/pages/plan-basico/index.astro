@@ -1,0 +1,26 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PlanBasic from "@components/planBasic/planBasic.astro";
+---
+
+<Layout>
+    <main>
+        <div class="w3-content">
+            <PlanBasic/>
+        </div>
+    </main>
+</Layout>
+
+<style>
+
+    main {
+		display:			flex;
+		flex-direction:		column;
+		justify-content:	center;
+	}
+    
+	main > div {
+        width:				100%;
+    }
+
+</style>

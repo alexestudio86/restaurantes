@@ -1,0 +1,33 @@
+---
+
+import PlanBasicModelosVersionA from "@components/planBasic/planBasicModelos/planBasicModelos.versionA.astro";
+import PlanBasicModelosVersionB from "@components/planBasic/planBasicModelos/planBasicModelos.versionB.astro";
+import PlanBasicModelosVersionC from "@components/planBasic/planBasicModelos/planBasicModelos.versionC.astro";
+
+import { getPageData } from "@/lib/getPageData";
+import {versions} from "@/lib/versions.js";
+
+export async function getStaticPaths() {0
+  return versions.map((version) => ({
+    params: { version },
+  }));
+}
+
+const { version } = Astro.params;
+const data = await getPageData();
+
+const layouts = {
+  "modelo-a": PlanBasicModelosVersionA,
+  "modelo-b": PlanBasicModelosVersionB,
+  "modelo-c": PlanBasicModelosVersionC,
+};
+
+const Layout = layouts[version];
+
+---
+
+{
+  Layout && (
+    <Layout data={data}/>
+  )
+}

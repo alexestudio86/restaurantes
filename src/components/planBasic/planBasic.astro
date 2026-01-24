@@ -1,0 +1,42 @@
+---
+
+import plans from "@assets/data/plans.data.json";
+const basicCategory = plans.find(plan => plan.category === "basic");
+
+---
+
+<h1 class="w3-center w3-xxlarge w3-padding-large">Planes Básicos</h1>
+<div>
+    {
+        basicCategory?.options.map(option => (
+            <article class="w3-card">
+                <h2>{option.name}</h2>
+                <a href={option.slug}></a>
+            </article>
+        ))
+    }
+</div>
+
+<style>
+
+    div {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    article {
+        position: relative;
+    }
+
+    article > a {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0;
+        text-decoration: none;
+    }
+
+</style>

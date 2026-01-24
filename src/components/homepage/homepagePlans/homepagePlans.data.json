@@ -1,7 +1,7 @@
 [
     {
         "id":           "AAA",
-        "title":        "Demo Basic",
+        "title":        "Plan Basic",
         "icon":         "fa-solid fa-list",
         "nickName":     "Básico",
         "features": [
@@ -37,7 +37,7 @@
         ]
     },{
         "id":           "BBB",
-        "title":        "Demo Premium",
+        "title":        "Plan Premium",
         "icon":         "fa-solid fa-table-list",
         "nickName":     "Premium",
         "features": [
@@ -59,7 +59,7 @@
         ]
     },{
         "id":           "CCC",
-        "title":        "Demo Platinum",
+        "title":        "Plan Platinum",
         "icon":         "fa-solid fa-rectangle-list",
         "nickName":     "Platinum",
         "features": [

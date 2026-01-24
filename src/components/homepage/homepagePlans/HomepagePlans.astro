@@ -25,7 +25,7 @@ const {titles, allFeatures } = homepagePlans.reduce( (acumulador, plan, index) =
   {
     titles.map( (title, index) => (               
       <input type="radio" name="tabs" id={`tab${index}`} checked={index===0} />
-      <label class="w3-col s4 w3-xlarge w3-light-gray" for={`tab${index}`} >{title}</label>
+      <label class="w3-col s4 w3-xlarge w3-light-gray w3-text-center" for={`tab${index}`} >{title}</label>
     ) )
   }
   {
@@ -50,7 +50,7 @@ const {titles, allFeatures } = homepagePlans.reduce( (acumulador, plan, index) =
       </section>
     ) )
   }
-  <button class="w3-button w3-col s12 w3-padding-24" >Demo</button>
+  <button class="w3-button w3-col s12 w3-padding-24" >Demos</button>
 </div>
 
 <style>
