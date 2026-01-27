@@ -1,10 +1,10 @@
 ---
 
-import PlanBasicModelosVersionA from "@components/planBasic/planBasicModelos/planBasicModelos.versionA.astro";
-import PlanBasicModelosVersionB from "@components/planBasic/planBasicModelos/planBasicModelos.versionB.astro";
-import PlanBasicModelosVersionC from "@components/planBasic/planBasicModelos/planBasicModelos.versionC.astro";
+import VersionApbModel from "@components/planBasic/pbModels/VersionA/index.astro";
+import VersionBpbModel from "@components/planBasic/pbModels/VersionB/index.astro";
+import VersionCpbModel from "@components/planBasic/pbModels/VersionC/index.astro";
 
-import { getPageData } from "@/lib/getPageData";
+import { getPageData } from "@/lib/getPageData.js";
 import {versions} from "@/lib/versions.js";
 
 export async function getStaticPaths() {0
@@ -16,18 +16,18 @@ export async function getStaticPaths() {0
 const { version } = Astro.params;
 const data = await getPageData();
 
-const layouts = {
-  "modelo-a": PlanBasicModelosVersionA,
-  "modelo-b": PlanBasicModelosVersionB,
-  "modelo-c": PlanBasicModelosVersionC,
+const modelLayouts = {
+  "modelo-a": VersionApbModel,
+  "modelo-b": VersionBpbModel,
+  "modelo-c": VersionCpbModel,
 };
 
-const Layout = layouts[version];
+const ModelLayout = modelLayouts[version];
 
 ---
 
 {
-  Layout && (
-    <Layout data={data}/>
+  ModelLayout && (
+    <ModelLayout data={data}/>
   )
 }

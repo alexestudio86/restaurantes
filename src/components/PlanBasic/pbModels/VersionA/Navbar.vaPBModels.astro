@@ -1,0 +1,20 @@
+---
+
+//JSON no puede hacer desctructuración profunda (nested desctructuring), por lo que solo se puede acceder al primer elemento
+import {navbar} from "../structure.pbModels.json";
+
+---
+
+
+<nav class="w3-top">
+    <div class="w3-content w3-bar w3-padding w3-blue-gray">
+        <a href="/" class="w3-bar-item w3-button w3-wide">Home</a>
+        <div class="w3-right">
+            {
+                navbar.items.map(item => (
+                    <a class="w3-bar-item w3-button" href={item.fragment}>{item.name}</a>
+                ))
+            }
+        </div>
+    </div>
+</nav>

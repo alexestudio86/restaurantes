@@ -1,0 +1,35 @@
+{
+    "navbar":   {
+        "items":    [
+            {
+                "name":     "promociones",
+                "fragment": "#promociones"
+            },{
+                "name":     "menu",
+                "fragment": "#menu"
+            },{
+                "name":     "contacto",
+                "fragment": "#contact"
+            }
+        ]
+    },
+    "footer":   {
+        "phone":    "722 631 4416",
+        "credits":  {
+            "creator":  "AlexEstudio86",
+            "url":      "https://alexestudio86.com"
+        },
+        "items":    [
+            {
+                "name":     "facebook",
+                "url":      "https://facebook.com/alexestudio86"
+            },{
+                "name":     "x",
+                "url":      "https://x.com/alexestudio86"
+            },{
+                "name":     "instagram",
+                "url":      "https://instagram.com/alexestudio86"
+            }
+        ]
+    }
+}

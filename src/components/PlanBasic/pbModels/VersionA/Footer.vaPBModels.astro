@@ -1,0 +1,42 @@
+---
+
+import {footer} from "../structure.pbModels.json";
+import icons from "../icons.pbModels.js";
+
+---
+
+
+<footer class="w3-row w3-content">
+    <div class="w3-row w3-blue-gray">
+        <div class="w3-half w3-padding">
+            <p class="w3-xlarge">{footer.phone}</p>
+        </div>
+        <div class="w3-half w3-padding">
+            <ul>
+                {
+                    footer.items.map( item => (
+                        <li>
+                            <a href={item.url}>
+                                <i class={`${icons[item.name]} fa-2x`}></i>
+                            </a>
+                        </li>
+                    ) )
+                }
+            </ul>
+        </div>
+        <div class="col s12">
+            <p class="w3-center">Created by <a href={footer.credits.url}>{footer.credits.creator}</a></p>
+        </div>
+    </div>
+</footer>
+
+<style>
+
+    ul {
+        list-style-type:    none;
+        display:            flex;
+        justify-content:    end;
+        gap:                0 4px;
+    }
+
+</style>

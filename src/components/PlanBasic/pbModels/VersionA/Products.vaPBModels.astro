@@ -1,0 +1,31 @@
+---
+
+import emptyImage from "@assets/images/plans/empty-image.jpg"
+import { ContentSchemaContainsSlugError } from "node_modules/astro/dist/core/errors/errors-data";
+const {posts} = Astro.props;
+console.log('posts: ', posts)
+
+---
+
+
+<section class="w3-row w3-light-gray" id="productos">
+    <div class="w3-row w3-content w3-padding-64">
+        <h2 class="w3-center w3-xxlarge w3-padding-large">Productos</h2>
+        {
+            posts.map( post => (
+                <article class="w3-half w3-padding">
+                    <div class="w3-row">
+                        <div class="w3-col s5">
+                            {
+                                console.log('images>: ', post.images)
+                            }
+                        </div>
+                        <div class="w3-rest">
+                            {post.id}
+                        </div>
+                    </div>
+                </article>
+            ) )
+        }
+    </div>
+</section>

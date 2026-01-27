@@ -1,19 +1,19 @@
 ---
 
-import BaseHead from "@components/base/baseHead/BaseHead.astro";
-import BaseNavbar from "@components/base/baseNavbar/BaseNavbar.astro";
-import BaseFooter from "@components/base/baseFooter/BaseFooter.astro";
+import BHead from "@components/base/BHead/index.astro";
+import BNavbar from "@components/base/BNavbar/index.astro";
+import BFooter from "@components/base/BFooter/index.astro";
 
 ---
 
 <html lang="es">
   <head>
-    <BaseHead title='Restaurantes' description='El mejor sitio de Restaurantes' />
+    <BHead title='Restaurantes' description='El mejor sitio de Restaurantes' />
   </head>
   <body>
-    <BaseNavbar />
+    <BNavbar />
     <slot />
-    <BaseFooter />
+    <BFooter />
   </body>
 </html>
 

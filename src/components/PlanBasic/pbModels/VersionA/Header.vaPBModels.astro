@@ -1,0 +1,36 @@
+---
+
+import bgHeader from "./background-header.jpg";
+import logo from "./logo-costillas.png";
+
+const {customized:{title, description}} = Astro.props;
+
+---
+
+
+<header class="w3-row w3-light-gray" style="height: 100%;">
+    <div class="w3-content bgImg" style={`background-image: url(${bgHeader.src})`}>
+        <div class="w3-cell-row" style="height: 100%;">
+            <div class="w3-cell w3-cell-middle w3-center">
+                <div>
+                    <h1 class="w3-jumbo w3-text-white">{title}</h1>
+                    <p class="w3-large w3-text-white">{description}</p>
+                </div>
+            </div>
+            <div class="w3-cell w3-cell-middle w3-center" style="height: 100%;">
+                <img class="w3-padding w3-round-xlarge w3-opacity-min w3-white" src={logo.src} alt="Logo Las Costillas de Don Pancho" />
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+
+    .bgImg {
+        background-position:    center;
+        background-size:        cover;
+        height:                 100%;
+        width:                  100%;
+    }
+
+</style>

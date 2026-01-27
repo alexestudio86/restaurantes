@@ -1,0 +1,31 @@
+---
+
+import BaseHead from "@components/base/BHead/index.astro";
+import Navbar from "./Navbar.vaPBModels.astro";
+import Header from "./Header.vaPBModels.astro";
+import Promos from "./Promos.vaPBModels.astro";
+import Products from "./Products.vaPBModels.astro";
+import Contact from "./Contact.vaPBModels.astro";
+import Footer from "./Footer.vaPBModels.astro";
+
+const {data:{posts, pages}} = Astro.props;
+
+---
+
+<BaseHead title='Restaurantes' description='El mejor sitio de Restaurantes' />
+<Navbar />
+<Header customized={{title:'Carnitas Ernesto', description:'Las mejores carnitas de México'}} />
+<main>
+    <Promos pages={pages} />
+    <Products posts={posts} />
+    <Contact/>
+</main>
+<Footer/>
+
+<style>
+
+    div {
+        height:     100%;
+    }
+
+</style>

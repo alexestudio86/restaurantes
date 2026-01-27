@@ -4,13 +4,13 @@
         "options":      [
             {
                 "name":     "Diseño 01",
-                "slug":     "modelo-01"
+                "slug":     "plan-basico/modelo-a"
             },{
                 "name":     "Diseño 02",
-                "slug":     "modelo-02"
+                "slug":     "plan-basico/modelo-b"
             },{
                 "name":     "Diseño 03",
-                "slug":     "modelo-03"
+                "slug":     "planb-basico/modelo-c"
             }
         ]
     },{
@@ -18,7 +18,7 @@
         "options":      [
             {
                 "name":     "Diseño 01",
-                "slug":     "modelo-01"
+                "slug":     "plan-premium/modelo-a"
             }
         ]
     },{
@@ -26,7 +26,7 @@
         "options":      [
             {
                 "name":     "Diseño 01",
-                "slug":     "modelo-01"
+                "slug":     "plan-platinum/modelo-a"
             }
         ]
     }

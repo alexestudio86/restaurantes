@@ -1,0 +1,79 @@
+---
+
+import emptyImage from "@assets/images/plans/empty-image.jpg"
+
+// Define la estructura de un post individual
+interface BloggerPages {
+  id:       string,
+  title:    string,
+  content:  string
+}
+
+// Define la interfaz de las Props del componente
+interface Props {
+    pages: BloggerPages[];
+}
+
+// Accede a las props
+const {pages} = Astro.props;
+
+---
+
+
+<section class="w3-row" id="promociones">
+    <div class="w3-row w3-content w3-padding-64">
+        <h2 class="w3-center w3-xxlarge w3-padding-large">Promociones</h2>
+        {
+            pages.map( page => {
+                // Convert html to text
+                const articleContent = JSON.stringify(page.content);
+                // Extract img´s to array
+                const imgsFromContent = articleContent.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/g);
+                // Text from content
+                const textFromContent = page.content.replace(/<[^>]*>/g, '').trim()
+                //Empty image
+                if( imgsFromContent.length < 1 ){
+                    return (
+                        <article class="w3-third w3-padding">
+                            <div class="w3-card">
+                                <figure>
+                                    <img src={emptyImage.src} alt={page.title} width="640" height="480" />
+                                </figure>
+                                <header>
+                                    <h3 class="w3-center w3-large">{page.title}</h3>
+                                </header>
+                                <p class="w3-medium">{textFromContent}</p>
+                            </div>
+                        </article>
+                    )
+                }
+                return (
+                    <article class="w3-third w3-padding">
+                        <div class="w3-card">
+                            <figure>
+                                <img src={`${imgsFromContent[0].replace(/(\/d\/)|(\/s\d{3}\/)|(\/s\d{4}\/)|(\/s\d+-d\/)/g, '/s720/')}`} alt={page.title}" width="640" height="auto" />
+                            </figure>
+                            <header>
+                                <h3 class="w3-center w3-large">{page.title}</h3>
+                            </header>
+                            <p class="w3-medium">{textFromContent}</p>
+                        </div>
+                    </article>
+                )
+            } )
+        }
+    </div>
+</section>
+
+<style>
+
+    article > div > figure > img {
+        width:      100%;
+        object-fit: cover;
+    }
+
+    article > div > p {
+        height:     40px;
+    }
+
+</style>
