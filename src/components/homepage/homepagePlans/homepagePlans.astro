@@ -1,0 +1,108 @@
+---
+
+import homepagePlans from "./homepagePlans.data.json";
+
+const {titles, allFeatures } = homepagePlans.reduce( (acumulador, plan, index) => {
+  // Usamos destructuración con valores predeterminados
+  // Si title no existe, será "Plan sin nombre"
+  // Si features no existe, será un array vacío []
+  const { title = "Plan sin nombre", features = [] } = plan;
+  acumulador.titles.push(title);
+  acumulador.allFeatures.push(
+    {
+      leftFeatures: plan.features.slice(0, Math.ceil(plan.features.length/2)),
+      rightFeatures: plan.features.slice(Math.ceil(plan.features.length/2))
+    }
+  );
+  return acumulador;
+}, {titles:[], allFeatures:[]} );
+
+---
+
+
+<div class="w3-row">
+  <div class="w3-row">
+  {
+    titles.map( (title, index) => (               
+      <input type="radio" name="tabs" id={`tab${index}`} checked={index===0} />
+      <label class="w3-col s4 w3-xlarge w3-light-gray w3-text-center" for={`tab${index}`} >{title}</label>
+    ) )
+  }
+  {
+    allFeatures.map( ({leftFeatures, rightFeatures}) => (
+      <section class="w3-col s12 w3-border w3-light-gray">
+        <ul class="w3-row w3-ul w3-center">
+          <div class="w3-half w3-padding-small w3-white">
+            {
+              leftFeatures.map( lf => (
+                <li>{lf}</li>
+              ))
+            }
+          </div>
+          <div class="w3-half w3-padding-small w3-white">
+            {
+              rightFeatures.map( rf => (
+                <li>{rf}</li>
+              ))
+            }
+          </div>
+        </ul>
+      </section>
+    ) )
+  }
+  <button class="w3-button w3-col s12 w3-padding-24" >Demos</button>
+</div>
+
+<style>
+
+  div > div > input {
+    display:    none;
+  }
+
+  div > div > label {
+    cursor:     pointer;
+    padding:    15px;
+  }
+
+  div > div > input:nth-of-type(1):checked + label:nth-of-type(1), div > div > input:nth-of-type(1):checked ~ button {
+    background:   rgb(190, 190, 190) !important;
+  }
+
+  div > div > input:nth-of-type(2):checked + label:nth-of-type(2), div > div > input:nth-of-type(2):checked ~ button {
+    background:   rgb(97, 97, 97) !important;
+    color:        #f1f1f1 !important;
+  }
+
+  div > div > input:nth-of-type(3):checked + label:nth-of-type(3), div > div > input:nth-of-type(3):checked ~ button {
+    background:   rgb(0, 0, 0) !important;
+    color:        #f1f1f1 !important;
+  }
+
+  div > div > section {
+    display:    none;
+  }
+
+  /* Mostrar panel según radio seleccionado */
+  div > div > input:nth-of-type(1):checked ~ section:nth-of-type(1),
+  div > div > input:nth-of-type(2):checked ~ section:nth-of-type(2),
+  div > div > input:nth-of-type(3):checked ~ section:nth-of-type(3) {
+    display:    block;
+    padding:    0;
+  }
+
+</style>
+
+<script>
+
+  const boton = document.querySelector('button')?.addEventListener('click', () => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('modal')) {
+      url.searchParams.delete('modal');
+    } else {
+      url.searchParams.set('modal', 'basic');
+    }
+    // pushState para cambiar la URL sin recargar
+    window.history.pushState({}, '', url);
+  });
+
+</script>

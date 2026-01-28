@@ -1,6 +1,6 @@
 ---
 
-import emptyImage from "@assets/images/plans/empty-image.jpg"
+import emptyImage from "@assets/images/plans/empty-image.jpg";
 
 // Define la estructura de un post individual
 interface BloggerPages {
@@ -30,14 +30,18 @@ const {pages} = Astro.props;
                 // Extract img´s to array
                 const imgsFromContent = articleContent.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/g);
                 // Text from content
-                const textFromContent = page.content.replace(/<[^>]*>/g, '').trim()
+                const textFromContent = page.content.replace(/<[^>]*>/g, '').trim();
                 //Empty image
-                if( imgsFromContent.length < 1 ){
+
+                const imageSrc = imgsFromContent?.length < 1
+                ? emptyImage.src
+                : imgsFromContent[0]?.replace(/\/(s\d+|w\d+|h\d+|d)(-[^/]+)?\//g, '/w640-h360-c/')
+
                     return (
                         <article class="w3-third w3-padding">
                             <div class="w3-card">
                                 <figure>
-                                    <img src={emptyImage.src} alt={page.title} width="640" height="480" />
+                                    <img src={imageSrc} alt={page.title} width="640px" height="auto" />
                                 </figure>
                                 <header>
                                     <h3 class="w3-center w3-large">{page.title}</h3>
@@ -45,21 +49,7 @@ const {pages} = Astro.props;
                                 <p class="w3-medium">{textFromContent}</p>
                             </div>
                         </article>
-                    )
-                }
-                return (
-                    <article class="w3-third w3-padding">
-                        <div class="w3-card">
-                            <figure>
-                                <img src={`${imgsFromContent[0].replace(/(\/d\/)|(\/s\d{3}\/)|(\/s\d{4}\/)|(\/s\d+-d\/)/g, '/s720/')}`} alt={page.title}" width="640" height="auto" />
-                            </figure>
-                            <header>
-                                <h3 class="w3-center w3-large">{page.title}</h3>
-                            </header>
-                            <p class="w3-medium">{textFromContent}</p>
-                        </div>
-                    </article>
-                )
+                );
             } )
         }
     </div>
@@ -69,6 +59,7 @@ const {pages} = Astro.props;
 
     article > div > figure > img {
         width:      100%;
+        aspect-ratio: 16 / 9;
         object-fit: cover;
     }
 

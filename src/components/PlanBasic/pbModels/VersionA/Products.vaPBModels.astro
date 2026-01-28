@@ -1,9 +1,17 @@
 ---
 
-import emptyImage from "@assets/images/plans/empty-image.jpg"
-import { ContentSchemaContainsSlugError } from "node_modules/astro/dist/core/errors/errors-data";
+import emptyImage from "@assets/images/plans/empty-image.jpg";
+
+interface BloggerPosts {
+  title:    string,
+  images?:   []
+}
+
+interface Props {
+    posts: BloggerPosts[];
+}
+
 const {posts} = Astro.props;
-console.log('posts: ', posts)
 
 ---
 
@@ -12,20 +20,33 @@ console.log('posts: ', posts)
     <div class="w3-row w3-content w3-padding-64">
         <h2 class="w3-center w3-xxlarge w3-padding-large">Productos</h2>
         {
-            posts.map( post => (
-                <article class="w3-half w3-padding">
-                    <div class="w3-row">
-                        <div class="w3-col s5">
-                            {
-                                console.log('images>: ', post.images)
-                            }
+            posts.map( ({title, images = []}) => {
+                const imageSrc = images?.length < 1
+                ? emptyImage.src
+                : ( ((images[0]).url).replace(/\/(s\d+|w\d+|h\d+|d)(-[^/]+)?\//g, '/w640-h360-c/') )
+                return (
+                    <article class="w3-half w3-padding">
+                        <div class="w3-row">
+                            <div class="w3-col s5">
+                                <img src={imageSrc} alt={title} width="640px" height="auto"/>
+                            </div>
+                            <div class="w3-rest">
+                                {title}
+                            </div>
                         </div>
-                        <div class="w3-rest">
-                            {post.id}
-                        </div>
-                    </div>
-                </article>
-            ) )
+                    </article>
+                )
+            } )
         }
     </div>
 </section>
+
+<style>
+
+    article > div > div > img {
+        width:      100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+</style>
