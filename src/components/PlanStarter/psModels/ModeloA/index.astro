@@ -1,26 +1,32 @@
 ---
 
-import BaseHead from "@components/base/BHead/index.astro";
-import Navbar from "./Navbar.vaPBModels.astro";
-import Header from "./Header.vaPBModels.astro";
-import Promos from "./Promos.vaPBModels.astro";
-import Products from "./Products.vaPBModels.astro";
-import Contact from "./Contact.vaPBModels.astro";
-import Footer from "./Footer.vaPBModels.astro";
+import SHead from "@components/site/SHead/index.astro";
+import Navbar from "./Navbar.maPBModels.astro";
+import Header from "./Header.maPBModels.astro";
+import Promos from "./Promos.maPBModels.astro";
+import Products from "./Products.maPBModels.astro";
+import Contact from "./Contact.maPBModels.astro";
+import Footer from "./Footer.maPBModels.astro";
 
-const {data:{posts, pages}} = Astro.props;
+const {data:{posts, pages}, title, description} = Astro.props;
 
 ---
 
-<BaseHead title='Restaurantes' description='El mejor sitio de Restaurantes' />
-<Navbar />
-<Header customized={{title:'Carnitas Ernesto', description:'Las mejores carnitas de México'}} />
-<main>
-    <Promos pages={pages} />
-    <Products posts={posts} />
-    <Contact/>
-</main>
-<Footer/>
+<html lang="es">
+    <head>
+        <SHead title={title} description={description} />
+    </head>
+    <body>
+        <Navbar />
+        <Header title={`${title} | Restaurantes`} description={`${description}`} />
+        <main>
+            <Promos pages={pages} />
+            <Products posts={posts} />
+            <Contact/>
+        </main>
+        <Footer/>
+    </body>
+</html>
 
 <style>
 

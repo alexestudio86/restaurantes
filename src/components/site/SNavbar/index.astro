@@ -1,6 +1,6 @@
 ---
 
-import navbarItems from "./baseNavbar.data.json";
+import navbarItems from "./siteNavbar.data.json";
 import { getCollection } from "astro:content";
 const plans = await getCollection('plans');
 const orderedPlans = plans.sort((a, b) => a.data.order - b.data.order);

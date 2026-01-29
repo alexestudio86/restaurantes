@@ -1,15 +1,18 @@
 ---
 
-import bgHeader from "./background-header.jpg";
-import logo from "./logo-costillas.png";
+import {logo, sections, posts} from "@/data/pGeneralInfo.json";
+import planPImages from "src/lib/importPImages.js";
+const heroImage = planPImages[sections.header.heroImage] ? planPImages[sections.header.heroImage].src : planPImages[posts.emptyImage].src;
+const logoImage = planPImages[logo] ? planPImages[logo].src : planPImages[posts.emptyImage].src;
 
-const {customized:{title, description}} = Astro.props;
+
+const {title, description} = Astro.props;
 
 ---
 
 
 <header class="w3-row w3-light-gray" style={`height: auto;`}>
-    <div class="w3-auto bgImg" style=`background-image: url(${bgHeader.src};`>
+    <div class="w3-auto bgImg" style=`background-image: url(${heroImage};`>
         <div class="w3-cell-row" style="height: 100%;">
             <div class="w3-cell w3-cell-middle w3-center">
                 <div>
@@ -18,7 +21,7 @@ const {customized:{title, description}} = Astro.props;
                 </div>
             </div>
             <div class="w3-cell w3-cell-middle w3-center" style="height: 100%;">
-                <img class="w3-padding w3-round-xlarge w3-opacity-min w3-white" src={logo.src} alt="Logo Las Costillas de Don Pancho" />
+                <img class="w3-padding w3-round-xlarge w3-opacity-min w3-white" src={logoImage} alt="Logo de tu empresa" width="400px" height="auto" />
             </div>
         </div>
     </div>

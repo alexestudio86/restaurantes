@@ -5,7 +5,7 @@ import ModeloBPlanBasic from "@components/PlanStarter/psModels/ModeloB/index.ast
 import ModeloCPlanBasic from "@components/PlanStarter/psModels/ModeloC/index.astro";
 
 import { getPageData } from "@/lib/getPageData.js";
-import {modelos} from "@/lib/modelos.js";
+import {modelos} from "@/lib/modelsPSParams.js";
 
 export async function getStaticPaths() {0
   return modelos.map((modelo) => ({
@@ -28,6 +28,6 @@ const ModelLayout = modelLayouts[modelo];
 
 {
   ModelLayout && (
-    <ModelLayout data={data}/>
+    <ModelLayout data={data} title='Plan Starter' description='Modelo 01'/>
   )
 }

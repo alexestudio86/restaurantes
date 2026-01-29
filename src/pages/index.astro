@@ -2,11 +2,12 @@
 
 import Layout from "@layouts/Layout.astro";
 import HomepagePlans from "@components/Homepage/index.astro";
+import {slogan} from "@/data/psGeneralInfo.json";
 
 ---
 
 
-<Layout>
+<Layout title='Restaurantes | enmicel.com' description={slogan} >
 	<main>
 		<div class='w3-content'>
 			<div class="py-5 w3-container">

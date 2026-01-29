@@ -1,19 +1,20 @@
 ---
 
-import BHead from "@components/base/BHead/index.astro";
-import BNavbar from "@components/base/BNavbar/index.astro";
-import BFooter from "@components/base/BFooter/index.astro";
+import SHead from "@components/site/SHead/index.astro";
+import SNavbar from "@components/site/SNavbar/index.astro";
+import SFooter from "@components/site/SFooter/index.astro";
+const { title, description } = Astro.props;
 
 ---
 
 <html lang="es">
   <head>
-    <BHead title='Restaurantes' description='El mejor sitio de Restaurantes' />
+    <SHead title={title} description={description} />
   </head>
   <body>
-    <BNavbar />
+    <SNavbar />
     <slot />
-    <BFooter />
+    <SFooter />
   </body>
 </html>
 

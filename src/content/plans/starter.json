@@ -21,15 +21,15 @@
             {
                 "name":         "Modelo A",
                 "param":        "plan-starter/modelo-a",
-                "image":        "/image-ma.jpg"
+                "image":        "model01ps"
             },{
                 "name":         "Modelo B",
                 "param":        "plan-starter/modelo-b",
-                "image":        "Placeholder"
+                "image":        "model02ps"
             },{
                 "name":         "Modelo C",
                 "param":        "plan-starter/modelo-c",
-                "image":        "Placeholder"
+                "image":        "model03ps"
             }
         ]
     }
