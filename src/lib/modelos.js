@@ -1,0 +1,1 @@
+export const modelos = ['modelo-a', 'modelo-b', 'modelo-c'];

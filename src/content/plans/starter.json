@@ -1,0 +1,36 @@
+{
+    "title":        "Plan Starter",
+    "order":        1,
+    "nickName":     "starter",
+    "active":       true,
+    "icon":         "fa-solid fa-list",
+    "color":        "gray-two",
+    "price":        2600,
+    "features": [
+        "Landing Page",
+        "Diseño Menu Digital",
+        "Código QR",
+        "Pedidos Directos a tu whatsapp",
+        "Ten cards o etiquetas con código QR para tu negocio",
+        "Poster con código QR para tu negocio",
+        "Shotting de productos (4 platillos)"
+    ],
+    "paths": {
+        "slug":     "plan-starter",
+        "sections": [
+            {
+                "name":         "Modelo A",
+                "param":        "plan-starter/modelo-a",
+                "image":        "/image-ma.jpg"
+            },{
+                "name":         "Modelo B",
+                "param":        "plan-starter/modelo-b",
+                "image":        "Placeholder"
+            },{
+                "name":         "Modelo C",
+                "param":        "plan-starter/modelo-c",
+                "image":        "Placeholder"
+            }
+        ]
+    }
+}

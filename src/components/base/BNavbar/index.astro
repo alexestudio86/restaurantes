@@ -1,7 +1,14 @@
 ---
 
 import navbarItems from "./baseNavbar.data.json";
-
+import { getCollection } from "astro:content";
+const plans = await getCollection('plans');
+const orderedPlans = plans.sort((a, b) => a.data.order - b.data.order);
+const dropdownItems = orderedPlans.map( ({data:{title}, data:{paths}}) => {
+    return {
+        itemName:title, itemSlug:paths['slug']
+    }
+});
 
 ---
 
@@ -9,22 +16,22 @@ import navbarItems from "./baseNavbar.data.json";
 <nav class="theme section" id="navbar">
     <div class="w3-row w3-bar w3-light-grey w3-large navbar">
         { navbarItems.map( (navItem, index) => (
-            navItem.items.length > 0
+            navItem.name != 'Planes'
             ?
+            <a class={"w3-bar-item w3-button w3-block w3-col s4"} href={navItem.slug} >
+                <span class="w3-hide-small">{navItem.name}</span>
+            </a>
+            :
             <div class='w3-dropdown-hover w3-col s4'>
                 <button class="w3-button w3-center">Planes<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-bar-block w3-white w3-card-4">
                     {
-                        navItem.items.map(item => (
-                            <a class="w3-bar-item w3-button w3-text-black" href={item.itemSlug}>{item.itemName}</a>
+                        dropdownItems.map(item => (
+                            <a class="w3-bar-item w3-button w3-text-black" href={`/proyectos/restaurantes/${item.itemSlug}`}>{item.itemName}</a>
                         ))
                     }
                 </div>
             </div>
-            :
-            <a class={"w3-bar-item w3-button w3-block w3-col s4"} href={navItem.slug} >
-                <span class="w3-hide-small">{navItem.name}</span>
-            </a>
         ) ) }
     </div>
 </nav>

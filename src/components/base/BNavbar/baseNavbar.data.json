@@ -2,28 +2,14 @@
     {
         "name":     "Home",
         "icon":     "fa-solid fa-house",
-        "slug":     "/proyectos/restaurantes",
-        "items":    []
+        "slug":     "/proyectos/restaurantes"
     },{
         "name":     "Planes",
         "icon":     "fa-solid fa-list-check",
-        "slug":     "/planes",
-        "items":    [
-            {
-                "itemName":    "Básico",
-                "itemSlug":     "/proyectos/restaurantes/plan-basico"
-            },{
-                "itemName":    "Premium",
-                "itemSlug":     "/proyectos/restaurantes/plan-premium"
-            },{
-                "itemName":    "Plantinum",
-                "itemSlug":     "/proyectos/restaurantes/plan-platinum"
-            }
-        ]
+        "slug":     "/planes"
     },{
         "name":     "Contacto",
         "icon":     "fa-solid fa-headset",  
-        "slug":     "/contact",
-        "items":    []
+        "slug":     "/contact"
     }
 ]

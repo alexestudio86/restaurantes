@@ -1,8 +1,11 @@
 ---
 
-import homepagePlans from "./plansHomepage.data.json";
+import { getCollection } from "astro:content";
+const plans = await getCollection('plans');
+const orderedPlans = plans.sort((a, b) => a.data.order - b.data.order);
+const homepagePlans = orderedPlans.map( ({data}) => data);
 
-const {titles, allFeatures } = homepagePlans.reduce( (acumulador, plan, index) => {
+const {titles, allFeatures } = homepagePlans.reduce( (acumulador, plan) => {
   // Usamos destructuración con valores predeterminados
   // Si title no existe, será "Plan sin nombre"
   // Si features no existe, será un array vacío []

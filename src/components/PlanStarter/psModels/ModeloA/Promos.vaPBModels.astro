@@ -21,7 +21,7 @@ const {pages} = Astro.props;
 
 
 <section class="w3-row" id="promociones">
-    <div class="w3-row w3-content w3-padding-64">
+    <div class="w3-row w3-auto w3-padding-64">
         <h2 class="w3-center w3-xxlarge w3-padding-large">Promociones</h2>
         {
             pages.map( page => {
@@ -41,12 +41,12 @@ const {pages} = Astro.props;
                         <article class="w3-third w3-padding">
                             <div class="w3-card">
                                 <figure>
-                                    <img src={imageSrc} alt={page.title} width="640px" height="auto" />
+                                    <img src={imageSrc} alt={page.title ? page.title : 'Sin Título'} width="640px" height="auto" />
                                 </figure>
                                 <header>
                                     <h3 class="w3-center w3-large">{page.title}</h3>
                                 </header>
-                                <p class="w3-medium">{textFromContent}</p>
+                                <p class="w3-medium">{textFromContent.length > 0 ? textFromContent : 'Sin Descripción'}</p>
                             </div>
                         </article>
                 );

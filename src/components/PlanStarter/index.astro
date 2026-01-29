@@ -1,17 +1,19 @@
 ---
 
-import plans from "@assets/data/plans.data.json";
-const basicCategory = plans.find(plan => plan.category === "basic");
+//import plans from "@assets/data/plans.data.json";
+import { getCollection } from "astro:content";
+const plans = await getCollection('plans');
+const basicCategory = plans.find(plan => plan.data.nickName === "starter")?.data.paths.sections;
 
 ---
 
-<h1 class="w3-center w3-xxlarge w3-padding-large">Planes Básicos</h1>
+<h1 class="w3-center w3-xxlarge w3-padding-large">Plan Starter</h1>
 <div>
     {
-        basicCategory?.options.map(option => (
+        basicCategory.map(({name, param, image}) => (
             <article class="w3-card">
-                <h2>{option.name}</h2>
-                <a href={option.slug}></a>
+                <h2>{name}</h2>
+                <a href={param}></a>
             </article>
         ))
     }

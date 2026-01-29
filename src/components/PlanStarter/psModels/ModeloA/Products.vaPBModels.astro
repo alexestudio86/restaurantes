@@ -17,10 +17,10 @@ const {posts} = Astro.props;
 
 
 <section class="w3-row w3-light-gray" id="productos">
-    <div class="w3-row w3-content w3-padding-64">
+    <div class="w3-row w3-auto w3-padding-64">
         <h2 class="w3-center w3-xxlarge w3-padding-large">Productos</h2>
         {
-            posts.map( ({title, images = []}) => {
+            posts.map( ({title, images = [], labels = []}) => {
                 const imageSrc = images?.length < 1
                 ? emptyImage.src
                 : ( ((images[0]).url).replace(/\/(s\d+|w\d+|h\d+|d)(-[^/]+)?\//g, '/w640-h360-c/') )
@@ -28,10 +28,11 @@ const {posts} = Astro.props;
                     <article class="w3-half w3-padding">
                         <div class="w3-row">
                             <div class="w3-col s5">
-                                <img src={imageSrc} alt={title} width="640px" height="auto"/>
+                                <img src={imageSrc} alt={title.length > 1 ? title : 'Título no diponible'} width="640px" height="auto"/>
                             </div>
                             <div class="w3-rest">
-                                {title}
+                                <h3 class="w3-large">{title.length > 1 ? title : 'Título no diponible'}</h3>
+                                <span></span>
                             </div>
                         </div>
                     </article>
@@ -44,9 +45,14 @@ const {posts} = Astro.props;
 <style>
 
     article > div > div > img {
-        width:      100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
+        width:          100%;
+        aspect-ratio:   16 / 9;
+        object-fit:     cover;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-weight:    bold;
     }
 
 </style>

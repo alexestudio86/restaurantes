@@ -1,0 +1,27 @@
+{
+    "title":        "Plan Enterprise",
+    "order":        3,
+    "nickName":     "enterprise",
+    "active":       true,
+    "icon":         "fa-solid fa-rectangle-list",
+    "color":        "gray-six",
+    "price":        4000,
+    "features": [
+        "Asesoría personalizada",
+        "Configuración de perfil empresarial",
+        "Catálogo con fotografías de tu producto (20 productos)",
+        "Configuración de respuestas rápidas",
+        "Vinculación de productos del catálogo a tu sitio web",
+        "Asesorías post compra"
+    ],
+    "paths": {
+        "slug":     "plan-enterprise",
+        "sections": [
+            {
+                "name":         "Modelo A",
+                "param":        "plan-starter/modelo-a",
+                "image":        "/image-ma.jpg"
+            }
+        ]
+    }
+}

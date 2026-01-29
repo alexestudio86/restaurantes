@@ -1,0 +1,33 @@
+---
+
+import ModeloAPlanBasic from "@components/PlanStarter/psModels/ModeloA/index.astro";
+import ModeloBPlanBasic from "@components/PlanStarter/psModels/ModeloB/index.astro";
+import ModeloCPlanBasic from "@components/PlanStarter/psModels/ModeloC/index.astro";
+
+import { getPageData } from "@/lib/getPageData.js";
+import {modelos} from "@/lib/modelos.js";
+
+export async function getStaticPaths() {0
+  return modelos.map((modelo) => ({
+    params: { modelo },
+  }));
+}
+
+const { modelo } = Astro.params;
+const data = await getPageData();
+
+const modelLayouts = {
+  "modelo-a": ModeloAPlanBasic,
+  "modelo-b": ModeloBPlanBasic,
+  "modelo-c": ModeloCPlanBasic,
+};
+
+const ModelLayout = modelLayouts[modelo];
+
+---
+
+{
+  ModelLayout && (
+    <ModelLayout data={data}/>
+  )
+}
